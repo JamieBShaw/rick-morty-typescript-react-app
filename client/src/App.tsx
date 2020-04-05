@@ -12,11 +12,15 @@ import Locations from "./components/locations/Locations";
 const App = () => {
 	return (
 		<Router>
-			<NavBar />
-			<Route exact path="/" component={Home} />
-			<Route exact path="/episodes" component={Episodes} />
-			<Route exact path="/characters" component={Characters} />
-			<Route exact path="/locations" component={Locations} />
+			<div>
+				<NavBar />
+			</div>
+			<div>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/episodes" component={Episodes} />
+				<Route exact path="/characters" component={Characters} />
+				<Route exact path="/locations" component={Locations} />
+			</div>
 		</Router>
 	);
 };
