@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+import { StoreProvider } from "./store/Store";
+
 import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
@@ -21,11 +23,13 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-	<ApolloProvider client={client}>
-		<React.StrictMode>
-			<App />
-		</React.StrictMode>
-	</ApolloProvider>,
+	<StoreProvider>
+		<ApolloProvider client={client}>
+			<React.StrictMode>
+				<App />
+			</React.StrictMode>
+		</ApolloProvider>
+	</StoreProvider>,
 	document.getElementById("root")
 );
 

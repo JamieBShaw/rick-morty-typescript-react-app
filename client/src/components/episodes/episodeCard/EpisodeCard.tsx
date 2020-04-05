@@ -21,6 +21,7 @@ const EpisodeCard: React.FC<IEpisode> = ({
 	air_date,
 	created,
 	episode,
+	id,
 }: IEpisode) => {
 	const classes = useStyles();
 
@@ -40,7 +41,7 @@ const EpisodeCard: React.FC<IEpisode> = ({
 			/>
 			<CardMedia
 				className={classes.media}
-				image="../../../../public/static/rick-and-morty-collection-folder-icon-rick-and-morty-003-256x256-png-icon.jpg"
+				image="/home/jamie/Projects/GitProjects/rick-morty-typscriprt-react-app/client/public/static/rick-and-morty-collection-folder-icon-rick-and-morty-003-256x256-png-icon.jpg"
 				title={episode}
 			/>
 			<CardActions disableSpacing>
