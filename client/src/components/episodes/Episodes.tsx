@@ -9,7 +9,7 @@ import { Container } from "@material-ui/core";
 
 import { Store } from "../../store/Store";
 
-interface IEpisodeREST {
+export interface IEpisodeREST {
 	airdate: string;
 	airstamp: string;
 	airtime: string;
@@ -48,15 +48,9 @@ const Episodes: React.FC = () => {
 		return <p> ERRORRRR</p>;
 	}
 
-	console.log(data);
-	console.log(state);
-
 	return (
 		<Container>
-			<EpisodeList
-				img={state.episodes.image.medium}
-				results={data!.episodes.results}
-			/>
+			<EpisodeList results={data!.episodes.results} />
 		</Container>
 	);
 };
