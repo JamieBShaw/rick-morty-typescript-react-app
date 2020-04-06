@@ -1,32 +1,38 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import IconButton from "@material-ui/core/IconButton";
-import ShareIcon from "@material-ui/icons/Share";
 
 import useStyles from "./Styles";
-import { IEpisode } from "../EpisodeInterface";
+import { Typography, CardActions } from "@material-ui/core";
 
-const EpisodeCard: React.FC<IEpisode | any> = (
-	props,
-	{ name, air_date, created, episode }: IEpisode
-) => {
+interface IProps {
+	id: number;
+	name: string;
+	episode: string;
+	image: string;
+}
+
+const EpisodeCard: React.FC<IProps> = ({
+	id,
+	name,
+	episode,
+	image,
+}: IProps) => {
 	const classes = useStyles();
 
 	return (
 		<Card variant="outlined" className={classes.root}>
-			<CardHeader title={name} subheader={name} />
-			<CardMedia className={classes.media} image={props.img} title={episode} />
-			<CardActions disableSpacing>
-				<CardContent>
-					{created}
-					{air_date}
-				</CardContent>
-			</CardActions>
+			<CardMedia className={classes.media} image={image} />
+			<CardContent>
+				<Typography>
+					<h4>
+						{episode}: {name}
+					</h4>
+				</Typography>
+			</CardContent>
+			<CardActions disableSpacing></CardActions>
 		</Card>
 	);
 };
