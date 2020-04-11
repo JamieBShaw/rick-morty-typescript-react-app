@@ -13,5 +13,10 @@ export default makeStyles((theme: Theme) =>
 		title: {
 			flexGrow: 1,
 		},
+		image: {
+			width: "100%",
+			height: "75%",
+			marginTop: "55px",
+		},
 	})
 );

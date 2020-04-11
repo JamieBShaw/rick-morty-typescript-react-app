@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
 						<MenuIcon />
 					</IconButton>
 					<Typography variant="h6" className={classes.title}>
-						App
+						Rick and Morty
 					</Typography>
 					<Button component={Link} to="/">
 						Home

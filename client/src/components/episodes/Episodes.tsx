@@ -2,26 +2,13 @@ import React, { useEffect, useContext } from "react";
 import { useQuery } from "react-apollo";
 import gql from "graphql-tag";
 
-import { IEpisodeData } from "./EpisodeInterface";
+import { IEpisodeData } from "./interfaces";
 import Loading from "../loading/Loading";
 import EpisodeList from "./episodeList/EpisodeList";
 import { Container } from "@material-ui/core";
 
 import { Store } from "../../store/Store";
-
-export interface IEpisodeREST {
-	airdate: string;
-	airstamp: string;
-	airtime: string;
-	id: number;
-	image: { medium: string; orginal: string };
-	name: string;
-	number: number;
-	runtime: number;
-	season: number;
-	summary: string;
-	url: string;
-}
+import Error from "../error/Error";
 
 const Episodes: React.FC = () => {
 	const { state, dispatch } = useContext(Store);
@@ -45,7 +32,7 @@ const Episodes: React.FC = () => {
 		return <Loading />;
 	}
 	if (error) {
-		return <p> ERRORRRR</p>;
+		return <Error />;
 	}
 
 	return (

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import { Store } from "../../../store/Store";
-import { IResult, IEpisode } from "../EpisodeInterface";
+import { IResult, IEpisode } from "../interfaces";
 import EpisodeCard from "../episodeCard/EpisodeCard";
 import { Grid, IconButton } from "@material-ui/core";
 import useStyles from "./Styles";
@@ -18,7 +18,6 @@ const EpisodeList: React.FC<IResult | undefined> = ({ results }: IResult) => {
 			type: "ADD_FAV",
 			payload: episode,
 		});
-
 	return (
 		<div>
 			<Grid className={classes.grid} container spacing={2}>

@@ -5,19 +5,25 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 
 import useStyles from "./Styles";
-import { Typography, CardActions } from "@material-ui/core";
+import { Typography, CardActions, Divider } from "@material-ui/core";
 
 interface IProps {
-	id: number;
+	id?: number;
 	name: string;
-	episode: string;
+	species: string;
 	image: string;
+	type?: string;
+	status: string;
+	gender: string;
 }
 
-const EpisodeCard: React.FC<IProps> = ({
+const CharacterCard: React.FC<IProps> = ({
 	id,
 	name,
-	episode,
+	species,
+	type,
+	gender,
+	status,
 	image,
 }: IProps) => {
 	const classes = useStyles();
@@ -27,9 +33,21 @@ const EpisodeCard: React.FC<IProps> = ({
 			<CardMedia className={classes.media} image={image} />
 			<CardContent>
 				<Typography>
-					<h4>
-						{episode}: {name}
-					</h4>
+					<div>
+						<h4>{name}</h4>
+					</div>
+					<Divider variant="inset" />
+					<div>
+						<h5>{species}</h5>
+					</div>
+					<Divider variant="inset" />
+					<div>
+						<h5>{status}</h5>
+					</div>
+					<Divider variant="inset" />
+					<div>
+						<h5>{gender}</h5>
+					</div>
 				</Typography>
 			</CardContent>
 			<CardActions disableSpacing></CardActions>
@@ -37,4 +55,4 @@ const EpisodeCard: React.FC<IProps> = ({
 	);
 };
 
-export default EpisodeCard;
+export default CharacterCard;
