@@ -5,7 +5,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 
 import useStyles from "./Styles";
-import { Typography, CardActions, Divider } from "@material-ui/core";
+import { CardActions } from "@material-ui/core";
 
 interface IProps {
 	id?: number;
@@ -31,24 +31,11 @@ const CharacterCard: React.FC<IProps> = ({
 	return (
 		<Card variant="outlined" className={classes.root}>
 			<CardMedia className={classes.media} image={image} />
-			<CardContent>
-				<Typography>
-					<div>
-						<h4>{name}</h4>
-					</div>
-					<Divider variant="inset" />
-					<div>
-						<h5>{species}</h5>
-					</div>
-					<Divider variant="inset" />
-					<div>
-						<h5>{status}</h5>
-					</div>
-					<Divider variant="inset" />
-					<div>
-						<h5>{gender}</h5>
-					</div>
-				</Typography>
+			<CardContent className={classes.cardContent}>
+				<h2>Name: {name}</h2>
+				<h5>Species: {species}</h5>
+				<h5>Status: {status}</h5>
+				<h5>Gender: {gender}</h5>
 			</CardContent>
 			<CardActions disableSpacing></CardActions>
 		</Card>

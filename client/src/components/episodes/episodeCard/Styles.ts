@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			textAlign: "center",
 			color: "green",
 			fontSize: 8,
+			fontFamily: "Creepster, cursive",
 		},
 	})
 );

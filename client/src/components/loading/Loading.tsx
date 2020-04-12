@@ -3,9 +3,17 @@ import { CircularProgress, Container } from "@material-ui/core";
 
 const Loading: React.FC = () => {
 	return (
-		<Container>
-			<CircularProgress />
-		</Container>
+		<div
+			style={{
+				marginTop: "100px",
+				paddingTop: "100px",
+				textAlign: "center",
+			}}
+		>
+			<Container>
+				<CircularProgress size="100px" thickness={4} />
+			</Container>
+		</div>
 	);
 };
 

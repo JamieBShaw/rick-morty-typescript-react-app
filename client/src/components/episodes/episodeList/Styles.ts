@@ -9,6 +9,7 @@ const useStyles = makeStyles(() =>
 			padding: "15px",
 			paddingTop: "30px",
 			marginTop: "30px",
+			fontFamily: "Creepster, cursive",
 		},
 	})
 );
