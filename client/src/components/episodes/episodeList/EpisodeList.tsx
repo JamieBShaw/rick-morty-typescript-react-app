@@ -7,17 +7,34 @@ import { Grid, IconButton } from "@material-ui/core";
 import useStyles from "./Styles";
 
 import AddCircleOutlineSharpIcon from "@material-ui/icons/AddCircleOutlineSharp";
+import RemoveCircleOutlineSharpIcon from "@material-ui/icons/RemoveCircleOutlineSharp";
 
 const EpisodeList: React.FC<IResult | undefined> = ({ results }: IResult) => {
 	const { state, dispatch } = useContext(Store);
 
 	const classes = useStyles();
 
-	const handleToggleFavourites = (episode: IEpisode) =>
-		dispatch({
-			type: "ADD_FAV",
-			payload: episode,
-		});
+	const handleToggleFavourites = (episode: IEpisode) => {
+		const episodeInFav = state.favouriteEpisodes.includes(episode);
+
+		if (episodeInFav) {
+			const favEpisodesWithoutEpisode = state.favouriteEpisodes.filter(
+				(episodes: IEpisode) => episodes.id !== episode.id
+			);
+
+			dispatch({
+				type: "REMOVE_FAV_EPISODE",
+				payload: favEpisodesWithoutEpisode,
+			});
+		} else {
+			dispatch({
+				type: "ADD_FAV_EPISODE",
+				payload: episode,
+			});
+		}
+	};
+
+	console.log(state);
 	return (
 		<div>
 			<Grid className={classes.grid} container spacing={2}>
@@ -29,9 +46,21 @@ const EpisodeList: React.FC<IResult | undefined> = ({ results }: IResult) => {
 								episode={episode.episode}
 								name={episode.name}
 								id={episode.id}
+								backgroundToggle={state.favouriteEpisodes.find(
+									(epi: IEpisode) => epi.id === episode.id
+								)}
 							/>
-							<IconButton onClick={handleToggleFavourites(episode)}>
-								<AddCircleOutlineSharpIcon />
+							<IconButton onClick={() => handleToggleFavourites(episode)}>
+								{state.favouriteEpisodes.find(
+									(epi: IEpisode) => epi.id === episode.id
+								) ? (
+									<RemoveCircleOutlineSharpIcon className={classes.button} />
+								) : (
+									<AddCircleOutlineSharpIcon
+										className={classes.button}
+										style={{ color: "#43B4CA" }}
+									/>
+								)}
 							</IconButton>
 						</Grid>
 					);

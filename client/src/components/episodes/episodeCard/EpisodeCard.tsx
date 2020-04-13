@@ -5,32 +5,38 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 
 import useStyles from "./Styles";
-import { Typography, CardActions } from "@material-ui/core";
+import { CardActions } from "@material-ui/core";
 
 interface IProps {
-	id: number;
+	id?: number;
 	name: string;
 	episode: string;
 	image: string;
+	backgroundToggle: boolean;
 }
 
 const EpisodeCard: React.FC<IProps> = ({
-	id,
 	name,
 	episode,
 	image,
+	backgroundToggle,
 }: IProps) => {
 	const classes = useStyles();
 
 	return (
-		<Card variant="outlined" className={classes.root}>
+		<Card
+			variant="outlined"
+			className={classes.root}
+			style={
+				backgroundToggle
+					? { backgroundColor: "#43B4CA" }
+					: { backgroundColor: "#FFFFFF" }
+			}
+		>
 			<CardMedia className={classes.media} image={image} />
-			<CardContent>
-				<Typography>
-					<h4>
-						{episode}: {name}
-					</h4>
-				</Typography>
+			<CardContent className={classes.text}>
+				<h4>{name}</h4>
+				<h4>{episode}</h4>
 			</CardContent>
 			<CardActions disableSpacing></CardActions>
 		</Card>

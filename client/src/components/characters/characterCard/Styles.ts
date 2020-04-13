@@ -11,10 +11,11 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		cardContent: {
 			textAlign: "left",
-			fontSize: 18,
+			fontSize: 16,
 			paddingLeft: "10px",
 			marginTop: "0px",
 			paddingTop: "0px",
+			fontFamily: "Creepster, cursive",
 		},
 	})
 );

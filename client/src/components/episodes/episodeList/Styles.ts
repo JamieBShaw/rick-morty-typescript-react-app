@@ -11,6 +11,10 @@ const useStyles = makeStyles(() =>
 			marginTop: "30px",
 			fontFamily: "Creepster, cursive",
 		},
+		button: {
+			height: "30px",
+			width: "30px",
+		},
 	})
 );
 

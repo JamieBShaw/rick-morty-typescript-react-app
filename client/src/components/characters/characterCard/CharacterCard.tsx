@@ -15,21 +15,29 @@ interface IProps {
 	type?: string;
 	status: string;
 	gender: string;
+	backgroundToggle: boolean;
 }
 
 const CharacterCard: React.FC<IProps> = ({
-	id,
 	name,
 	species,
-	type,
 	gender,
 	status,
 	image,
+	backgroundToggle,
 }: IProps) => {
 	const classes = useStyles();
 
 	return (
-		<Card variant="outlined" className={classes.root}>
+		<Card
+			variant="outlined"
+			className={classes.root}
+			style={
+				backgroundToggle
+					? { backgroundColor: "#43B4CA" }
+					: { backgroundColor: "#FFFFFF" }
+			}
+		>
 			<CardMedia className={classes.media} image={image} />
 			<CardContent className={classes.cardContent}>
 				<h2>Name: {name}</h2>

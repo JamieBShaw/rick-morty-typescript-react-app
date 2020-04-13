@@ -22,10 +22,22 @@ const reducer = (state: IState, actions: IActions): IState => {
 				...state,
 				favouriteEpisodes: [...state.favouriteEpisodes, actions.payload],
 			};
-		case "ADD_FAV_CHARACTERS":
+
+		case "REMOVE_FAV_EPISODE":
+			return {
+				...state,
+				favouriteEpisodes: [...actions.payload],
+			};
+		case "ADD_FAV_CHARACTER":
 			return {
 				...state,
 				favouriteCharacters: [...state.favouriteCharacters, actions.payload],
+			};
+
+		case "REMOVE_FAV_CHARACTER":
+			return {
+				...state,
+				favouriteCharacters: [...actions.payload],
 			};
 
 		default:

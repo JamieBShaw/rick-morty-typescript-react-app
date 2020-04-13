@@ -1,29 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 
-// import { Store } from "../../../store/Store";
+import { Store } from "../../../store/Store";
 
-import { Grid } from "@material-ui/core";
+import { Grid, IconButton } from "@material-ui/core";
 import useStyles from "./Styles";
 
-// import AddCircleOutlineSharpIcon from "@material-ui/icons/AddCircleOutlineSharp";
 import CharacterCard from "../characterCard/CharacterCard";
 
 import { ICharacter, IResultCharacters } from "../interfaces";
 
+import AddCircleOutlineSharpIcon from "@material-ui/icons/AddCircleOutlineSharp";
+import RemoveCircleOutlineSharpIcon from "@material-ui/icons/RemoveCircleOutlineSharp";
+
 const CharacterList: React.FC<IResultCharacters | undefined> = ({
 	results,
 }: IResultCharacters) => {
-	// const { state, dispatch } = useContext(Store);
+	const { state, dispatch } = useContext(Store);
 
 	const classes = useStyles();
 
-	// const handleToggleFavourites = (character: ICharacter) =>
-	// 	dispatch({
-	// 		type: "ADD_FAV_CHARACTER",
-	// 		payload: character,
-	// 	});
+	const handleToggleFavourites = (character: ICharacter) => {
+		const characterInFav = state.favouriteCharacters.includes(character);
 
-	// console.log(state);
+		if (characterInFav) {
+			const favCharactersWithoutCharacter = state.favouriteCharacters.filter(
+				(characters: ICharacter) => characters.id !== character.id
+			);
+			dispatch({
+				type: "REMOVE_FAV_CHARACTER",
+				payload: favCharactersWithoutCharacter,
+			});
+		} else {
+			dispatch({
+				type: "ADD_FAV_CHARACTER",
+				payload: character,
+			});
+		}
+	};
 
 	return (
 		<div>
@@ -39,10 +52,22 @@ const CharacterList: React.FC<IResultCharacters | undefined> = ({
 								status={character.status}
 								name={character.name}
 								id={character.id}
+								backgroundToggle={state.favouriteCharacters.find(
+									(char: ICharacter) => char.id === character.id
+								)}
 							/>
-							{/* <IconButton onClick={handleToggleFavourites(character)}>
-								<AddCircleOutlineSharpIcon />
-							</IconButton> */}
+							<IconButton onClick={() => handleToggleFavourites(character)}>
+								{state.favouriteCharacters.find(
+									(char: ICharacter) => char.id === character.id
+								) ? (
+									<RemoveCircleOutlineSharpIcon className={classes.button} />
+								) : (
+									<AddCircleOutlineSharpIcon
+										className={classes.button}
+										style={{ color: "#43B4CA" }}
+									/>
+								)}
+							</IconButton>
 						</Grid>
 					);
 				})}
