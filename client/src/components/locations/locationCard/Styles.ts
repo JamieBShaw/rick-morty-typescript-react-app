@@ -4,7 +4,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       maxWidth: 345,
-      height: 300,
     },
     media: {
       height: 0,
@@ -13,6 +12,9 @@ const useStyles = makeStyles((theme: Theme) =>
     text: {
       textAlign: 'left',
       fontSize: 16,
+      paddingLeft: '10px',
+      marginTop: '0px',
+      paddingTop: '0px',
       fontFamily: 'Creepster, cursive',
     },
   })
