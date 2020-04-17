@@ -12,8 +12,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     text: {
       textAlign: 'left',
-      fontSize: 16,
-      fontFamily: 'Creepster, cursive',
+      fontSize: 18,
+      fontWeight: 'lighter',
+      textShadow: '0px 0px white',
     },
   })
 );

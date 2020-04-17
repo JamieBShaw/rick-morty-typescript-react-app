@@ -3,20 +3,19 @@ import { Waypoint } from 'react-waypoint';
 
 interface IProps {
   length: number;
-  data: Array<any>;
+  data?: Array<any>;
   handleWaypoint: () => void;
+  itemCount: number;
 }
 
 export const OnWaypoint: React.FC<IProps> = ({
   length,
-  data,
   handleWaypoint,
+  itemCount,
 }: IProps) => {
-  console.log('LENGTH: ' + length);
-  console.log('DATALENGTH ' + data.length);
   return (
     <div>
-      {length <= 30 && (
+      {length <= itemCount && (
         <Waypoint
           onEnter={() => {
             handleWaypoint();

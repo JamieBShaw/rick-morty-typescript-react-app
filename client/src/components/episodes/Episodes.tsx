@@ -62,7 +62,6 @@ const Episodes: React.FC = () => {
     });
   };
 
-  console.log(data);
   return (
     <Container>
       <EpisodeList results={data!.episodes.results} />
@@ -70,6 +69,7 @@ const Episodes: React.FC = () => {
         length={data!.episodes.results.length}
         data={data!.episodes.results}
         handleWaypoint={onScrollEnd}
+        itemCount={30}
       />
     </Container>
   );

@@ -13,5 +13,5 @@ export interface IResultLocations {
 }
 
 export interface ILocationData {
-  characters: IResultLocations;
+  locations: IResultLocations;
 }

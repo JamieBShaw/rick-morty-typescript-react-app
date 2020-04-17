@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 
 import useStyles from './Styles';
@@ -33,12 +32,6 @@ const LocationCards: React.FC<IProps> = ({
           : { backgroundColor: '#FFFFFF' }
       }
     >
-      <CardMedia
-        className={classes.media}
-        image={
-          '/home/jamie/Projects/GitProjects/rick-morty-typscriprt-react-app/client/public/static/rick-and-morty-collection-folder-icon-rick-and-morty-003-256x256-png-icon.jpg'
-        }
-      />
       <CardContent className={classes.text}>
         <h4>{name}</h4>
         <h4>{dimension}</h4>

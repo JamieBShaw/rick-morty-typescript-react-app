@@ -36,7 +36,6 @@ const LocationList: React.FC<IResultLocations | undefined> = ({
     }
   };
 
-  console.log(state);
   return (
     <div>
       <Grid className={classes.grid} container spacing={2}>
