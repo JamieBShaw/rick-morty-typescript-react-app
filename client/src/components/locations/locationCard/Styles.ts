@@ -5,13 +5,11 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       maxWidth: 345,
     },
-    media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
-    },
     text: {
+      fontSize: 18,
+      fontWeight: 'lighter',
+      textShadow: '0px 0px white',
       textAlign: 'left',
-      fontSize: 16,
       paddingLeft: '10px',
       marginTop: '0px',
       paddingTop: '0px',

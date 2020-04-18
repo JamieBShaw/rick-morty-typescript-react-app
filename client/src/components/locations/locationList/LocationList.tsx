@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
-
 import { Store } from '../../../store/Store';
 import { IResultLocations, ILocation } from '../interfaces';
 import LocationCards from '../locationCard/LocationCards';
 import { Grid, IconButton } from '@material-ui/core';
 import useStyles from './Styles';
-
 import AddCircleOutlineSharpIcon from '@material-ui/icons/AddCircleOutlineSharp';
 import RemoveCircleOutlineSharpIcon from '@material-ui/icons/RemoveCircleOutlineSharp';
 

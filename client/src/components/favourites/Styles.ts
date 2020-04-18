@@ -13,6 +13,7 @@ export default makeStyles(() =>
       textShadow: '2px 2px black',
     },
     container: {
+      position: 'static',
       alignItems: 'center',
       justifyContent: 'center',
     },

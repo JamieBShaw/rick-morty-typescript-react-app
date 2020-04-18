@@ -1,7 +1,6 @@
-import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-
+import React from 'react';
 import useStyles from './Styles';
 
 interface IProps {
@@ -12,7 +11,7 @@ interface IProps {
   residents?: [string];
   url?: string;
   created?: string;
-  backgroundToggle: boolean;
+  backgroundToggle?: boolean;
 }
 
 const LocationCards: React.FC<IProps> = ({
@@ -24,7 +23,7 @@ const LocationCards: React.FC<IProps> = ({
 
   return (
     <Card
-      variant="outlined"
+      variant="elevation"
       className={classes.root}
       style={
         backgroundToggle

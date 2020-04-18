@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import useStyles from './Styles';
 import { Store } from '../../store/Store';
 import { IEpisode } from '../episodes/interfaces';
 import EpisodeCard from '../episodes/episodeCard/EpisodeCard';
 import CharacterCard from '../characters/characterCard/CharacterCard';
 import { ICharacter } from '../characters/interfaces';
+import { ILocation } from '../locations/interfaces';
+import LocationCards from '../locations/locationCard/LocationCards';
+
 interface IProps {}
 
 const FavouritesList: React.FC<IProps> = () => {
@@ -14,35 +17,42 @@ const FavouritesList: React.FC<IProps> = () => {
   return (
     <Container
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        display: 'inline-flex',
       }}
     >
       <div className={classes.title}>
         <div
           className={classes.container}
           style={{
-            paddingBottom: '15px',
-            marginBottom: '15px',
             marginRight: '85px',
           }}
         >
-          {' '}
-          Favourites Episode
-          <div>
-            {state.favouriteEpisodes.map((episode: IEpisode) => {
-              return (
-                <div key={episode.id}>
-                  <EpisodeCard
-                    image={state.episodes[episode.id - 1].image.medium}
-                    episode={episode.episode}
-                    name={episode.name}
-                    id={episode.id}
-                  />
-                </div>
-              );
-            })}
+          Favourite Episode
+          <div style={{ paddingTop: '0px', marginTop: '0px' }}>
+            <Grid container spacing={2}>
+              {state.favouriteEpisodes.map((episode: IEpisode) => {
+                return (
+                  <Grid
+                    key={episode.id}
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                  >
+                    <div key={episode.id}>
+                      <EpisodeCard
+                        image={state.episodes[episode.id - 1].image.medium}
+                        episode={episode.episode}
+                        name={episode.name}
+                        id={episode.id}
+                      />
+                    </div>
+                  </Grid>
+                );
+              })}
+            </Grid>
           </div>
         </div>
       </div>
@@ -50,27 +60,36 @@ const FavouritesList: React.FC<IProps> = () => {
         <div
           className={classes.container}
           style={{
-            paddingBottom: '15px',
-            marginBottom: '15px',
             marginRight: '85px',
           }}
         >
-          Favourite Characters{' '}
-          <div>
-            {state.favouriteCharacters.map((character: ICharacter) => {
-              return (
-                <div key={character.id}>
-                  <CharacterCard
-                    image={character.image}
-                    name={character.name}
-                    gender={character.gender}
-                    status={character.status}
-                    species={character.species}
-                    id={character.id}
-                  />
-                </div>
-              );
-            })}
+          Favourite Characters
+          <div style={{ paddingTop: '0px', marginTop: '0px' }}>
+            <Grid container spacing={2}>
+              {state.favouriteCharacters.map((character: ICharacter) => {
+                return (
+                  <Grid
+                    key={character.id}
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                  >
+                    <div key={character.id}>
+                      <CharacterCard
+                        image={character.image}
+                        name={character.name}
+                        gender={character.gender}
+                        species={character.species}
+                        status={character.status}
+                      />
+                    </div>
+                  </Grid>
+                );
+              })}
+            </Grid>
           </div>
         </div>
       </div>
@@ -78,12 +97,34 @@ const FavouritesList: React.FC<IProps> = () => {
         <div
           className={classes.container}
           style={{
-            paddingBottom: '15px',
-            marginBottom: '15px',
             marginRight: '85px',
           }}
         >
-          Favourite Locations{' '}
+          Favourite Locations
+          <div style={{ paddingTop: '0px', marginTop: '0px' }}>
+            <Grid container spacing={2}>
+              {state.favouriteLocations.map((location: ILocation) => {
+                return (
+                  <Grid
+                    key={location.id}
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                  >
+                    <div key={location.id}>
+                      <LocationCards
+                        name={location.name}
+                        dimension={location.dimension}
+                      />
+                    </div>
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </div>
         </div>
       </div>
     </Container>

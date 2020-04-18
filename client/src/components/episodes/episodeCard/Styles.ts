@@ -4,7 +4,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       maxWidth: 345,
-      height: 300,
     },
     media: {
       height: 0,
